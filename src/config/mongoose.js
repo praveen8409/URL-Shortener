@@ -6,7 +6,7 @@ require('dotenv').config();
 const connectDB = async () => {
     try {
           // Connecting to MongoDB using the provided URL
-        await mongoose.connect(process.env.MONGODB_URL, {
+        await mongoose.connect("mongodb+srv://praveen:praveen@praveenclustor.frwy0xs.mongodb.net/urlShortner", {
             useNewUrlParser: true,
             useUnifiedTopology: true
            

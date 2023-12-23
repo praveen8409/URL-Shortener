@@ -26,8 +26,9 @@ app.use('/url', urlRoutes);
 app.get('/list', requireAuth, urlController.getAllUrls);
 app.get('/:shortUrl', urlController.redirectToOriginalUrl);
 
+const PORT = 3000;
 
 // Starting the server on port 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

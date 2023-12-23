@@ -9,7 +9,7 @@ const requireAuth = (req, res, next) => {
     // Check if a token exists
     if (token) {
         // Verify the token and execute the callback
-        jwt.verify(token, process.env.SECRET_KEY, (err, decodedToken) => {
+        jwt.verify(token, 'secret', (err, decodedToken) => {
             // Handle token verification errors
             if (err) {
                 console.log(err.message);
@@ -30,7 +30,7 @@ const checkUser = (req, res, next) => {
     // Check if a token exists
     if (token) {
         // Verify the token and execute the callback
-        jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
+        jwt.verify(token, 'secret', async (err, decodedToken) => {
             // Handle token verification errors
             if (err) {
                 // Set user to null in local variables and proceed to the next middleware or route
