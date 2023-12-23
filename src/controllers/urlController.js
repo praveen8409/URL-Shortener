@@ -2,13 +2,13 @@ const Url = require('../models/urlModel');
 const UrlShortener = require('../utills/urlShortener');
 
 class UrlController {
-    
+
     static async shortenUrl(req, res) {
-       
+
         const userId = res.locals.user._id;
         try {
-            const {urlName, originalUrl } = req.body;
-            console.log(urlName,originalUrl);
+            const { urlName, originalUrl } = req.body;
+            console.log(urlName, originalUrl);
             if (!originalUrl)
                 return res.status(400).json({ message: "URL is required" });
             //check if the url is already shortened
@@ -20,7 +20,7 @@ class UrlController {
             const shortUrl = UrlShortener.generateShortUrl();
             //save to the database
             url = new Url({
-                urlName,originalUrl, shortUrl,user: userId
+                urlName, originalUrl, shortUrl, user: userId
             });
             await url.save();
             res.json(url);
@@ -44,5 +44,23 @@ class UrlController {
             res.status(500).send('Server Error');
         }
     }
+
+    static async getAllUrls(req, res) {
+        try {
+            const userId = res.locals.user._id;
+            const urls = await Url.find({ user: userId }
+            ).sort({ createdAt: -1 });
+            console.log(urls);
+            urls.forEach(url => {
+                url.shortUrl = `${req.protocol}://${req.get('host')}/${url.shortUrl}`;
+            })
+            return res.render('urlList', { urls});
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Server Error');
+        }
+    }
+
+
 }
 module.exports = UrlController;

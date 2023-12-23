@@ -1,0 +1,35 @@
+<!-- views/urlList.ejs -->
+
+<!-- urlList.ejs -->
+
+<%- include('partials/header'); -%>
+
+<div class="url-list-container">
+    <h1 class="urlHead">URL List</h1>
+
+    <table class="url-table">
+        <thead>
+            <tr>
+                <th>URL Name</th>
+                <th>Original URL</th>
+                <th>Short URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% urls.forEach(url => { %>
+                <tr>
+                    <td><%= url.urlName %></td>
+                    <td><%= url.originalUrl %></td>
+                    <td><a href="<%= url.shortUrl %>"><%= url.shortUrl %></a></td>
+                    <td><%= url.clicks %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('partials/socialIcon'); -%>
+
+
+<%- include('partials/footer'); -%>

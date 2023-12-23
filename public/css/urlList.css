@@ -1,0 +1,27 @@
+/* Add this to your CSS file or style tag */
+.url-list-container {
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.url-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.url-table th, .url-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.url-table th {
+    background-color: #f2f2f2;
+}
+.urlHead {
+    text-align: center;
+}
+
