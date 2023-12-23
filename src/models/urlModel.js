@@ -1,10 +1,13 @@
+// Importing the mongoose module
 const mongoose = require('mongoose');
+
+// Defining the URL schema using mongoose
 const urlSchema = new mongoose.Schema({
     originalUrl: {
         type: String,
         required: true
     },
-    urlName:{
+    urlName: {
         type: String,
         required: true,
     },
@@ -27,5 +30,9 @@ const urlSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+// Creating the URL model
 const Url = mongoose.model('Url', urlSchema);
+
+// Exporting the URL model for use in other modules
 module.exports = Url;
