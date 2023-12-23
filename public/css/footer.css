@@ -1,0 +1,15 @@
+/* Add this to your CSS file (styles.css) or within a <style> tag in your HTML file */
+
+footer {
+    background-color: #333; /* Set the background color to a dark color */
+    color: #fff; /* Set text color to white */
+    padding: 10px; /* Add some padding to the footer */
+    text-align: center; /* Center-align text within the footer */
+    position: fixed; /* Fixed position at the bottom of the viewport */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom of the page */
+}
+
+footer p {
+    margin: 0; /* Remove default margin from the paragraph inside the footer */
+}

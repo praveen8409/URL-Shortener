@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
-const DBURI = "mongodb+srv://praveen:praveen@praveenclustor.frwy0xs.mongodb.net/urlShortner";
+require('dotenv').config();
+
+
 const connectDB = async () => {
     try {
-        await mongoose.connect(DBURI, {
+        await mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
            

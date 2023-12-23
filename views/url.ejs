@@ -1,0 +1,17 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+    <header>
+        <h1>NotSoLong</h1>
+        <p>Shorten your lengthy URLs in a snap!!</p>
+    </header>
+    <main>
+        <input type="url" id="originalUrl" placeholder="Enter your long URL here">
+        <input type="text" id="urlName" placeholder="Enter URL name">
+        <button id="shortenBtn">Shorten</button>
+        <div id="result"></div>
+    </main>
+    <script src="js/url.js"></script>
+</div>
+
+<%- include('partials/footer'); -%>
