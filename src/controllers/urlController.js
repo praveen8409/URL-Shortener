@@ -11,11 +11,11 @@ class UrlController {
         const userId = res.locals.user._id;
         try {
             const { urlName, originalUrl } = req.body;
-            console.log(urlName, originalUrl);
+            // console.log(urlName, originalUrl);
             if (!originalUrl)
                 return res.status(400).json({ message: "URL is required" });
             //check if the url is already shortened
-            let url = await Url.findOne({ originalUrl });
+            let url = await Url.findOne({ originalUrl, user:userId });
             if (url) {
                 return res.json(url);
             }
@@ -44,7 +44,7 @@ class UrlController {
             await url.save();
             res.redirect(url.originalUrl);
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             res.status(500).send('Server Error');
         }
     }
@@ -63,7 +63,7 @@ class UrlController {
              // Render the 'urlList' view with the URLs
             return res.render('urlList', { urls });
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             res.status(500).send('Server Error');
         }
     }

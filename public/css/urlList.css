@@ -1,4 +1,4 @@
-/* Add this to your CSS file or style tag */
+/* Add this style inside a <style> tag or your CSS file */
 .url-list-container {
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -10,18 +10,50 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: fixed; /* Add this property to handle large strings */
+    word-wrap: break-word; /* Add this property to break words properly */
 }
 
 .url-table th, .url-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    overflow: hidden; /* Add this property to hide text that overflows the cell */
+    text-overflow: ellipsis; /* Add this property to show '...' for overflowed text */
 }
 
 .url-table th {
     background-color: #f2f2f2;
 }
+
 .urlHead {
     text-align: center;
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .url-table, .url-table th, .url-table td {
+        display: block;
+    }
+    .url-table th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .url-table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    .url-table td:before {
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    .url-table td:nth-of-type(1):before { content: "URL Name"; }
+    .url-table td:nth-of-type(2):before { content: "Original URL"; }
+    .url-table td:nth-of-type(3):before { content: "Short URL"; }
+    .url-table td:nth-of-type(4):before { content: "Clicks"; }
+}

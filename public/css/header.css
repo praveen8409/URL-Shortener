@@ -12,6 +12,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Add this property to allow the items to wrap in a new line on smaller screens */
 }
 
 nav a {
@@ -29,6 +30,8 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex; /* Add this property to align the items horizontally */
+    flex-wrap: wrap; /* Add this property to allow the items to wrap in a new line on smaller screens */
 }
 
 li {
@@ -48,4 +51,14 @@ nav ul {
 /* Add a subtle box-shadow to the navigation bar */
 nav {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column; /* Stack the items vertically on smaller screens */
+    }
+    nav a.logo, nav ul {
+        text-align: center; /* Center the items on smaller screens */
+    }
 }

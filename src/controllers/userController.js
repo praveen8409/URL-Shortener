@@ -42,7 +42,7 @@ class UserController {
         try {
             res.render('login');
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
         }
 
     }
@@ -58,7 +58,7 @@ class UserController {
 
             res.status(200).json({ user: user._id });
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             const errors = handleErrors(error);
             res.status(500).json({ errors });
         }

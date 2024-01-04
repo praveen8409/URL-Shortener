@@ -25,14 +25,7 @@ main {
     text-align: center;
 }
 
-input[type="url"] {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-#urlName{
+input[type="url"], #urlName {
     width: 80%;
     padding: 10px;
     margin-bottom: 10px;
@@ -59,9 +52,24 @@ button:hover {
 }
 
 
-.animation {
+
+.button {
+    display: inline-block;
+    background-color: #008CBA; /* Change as needed */
+    color: white; 
+    padding: 14px 20px;
     text-align: center;
-    animation: fadeInUp 1s ease-in-out;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-left: 46%;
+}
+
+.button:hover {
+    background-color: #007B9A; /* Darker shade of the original color */
 }
 
 @keyframes fadeInUp {
@@ -72,5 +80,23 @@ button:hover {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    input[type="url"], #urlName {
+        width: 100%;
+    }
+    .button {
+        margin-left: 0;
+        width: 100%;
     }
 }
